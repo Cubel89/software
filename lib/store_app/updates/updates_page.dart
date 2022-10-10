@@ -78,7 +78,8 @@ class _UpdatesPageState extends State<UpdatesPage> {
       children: [
         const _UpdatesHeader(),
         if (model.updatesState == UpdatesState.noUpdates)
-          const _NoUpdatesPage(),
+          //const _NoUpdatesPage(),
+        const _UpdatingPage(),
         if (model.updatesState == UpdatesState.readyToUpdate)
           const _UpdatesListView(),
         if (model.updatesState == UpdatesState.updating) const _UpdatingPage(),
@@ -198,6 +199,16 @@ class _UpdatingPage extends StatelessWidget {
             ),
             const SizedBox(
               height: 250,
+            ),
+            OutlinedButton(
+              onPressed: model.updatesState != UpdatesState.updating
+                  ? null
+                  : () => model.deselectAll(),
+              child: Text(
+                model.showLogs
+                ? context.l10n.showLogs
+                : context.l10n.showLogs,
+              ),
             ),
           ],
         ),

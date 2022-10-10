@@ -38,6 +38,7 @@ class UpdatesModel extends SafeChangeNotifier {
   StreamSubscription<bool>? _reposChangedSub;
   StreamSubscription<bool>? _updatesChangedSub;
   StreamSubscription<bool>? _selectionChanged;
+  StreamSubscription<bool>? _showLogs;
 
   UpdatesModel(
     this._service,
@@ -85,6 +86,10 @@ class UpdatesModel extends SafeChangeNotifier {
     _selectionChanged = _service.selectionChanged.listen((event) {
       notifyListeners();
     });
+    _showLogs = _service.showLogs.listen((event) {
+
+      notifyListeners();
+    });
   }
 
   @override
@@ -101,6 +106,7 @@ class UpdatesModel extends SafeChangeNotifier {
     _installedSub?.cancel();
     _reposChangedSub?.cancel();
     _selectionChanged?.cancel();
+    _showLogs?.cancel();
     super.dispose();
   }
 
@@ -192,6 +198,10 @@ class UpdatesModel extends SafeChangeNotifier {
   }
 
   bool get allSelected => _service.allSelected;
+
+  //bool get showLogs => _service.showLogs;
+
+  Stream<bool> get showLogs => _service.showLogs;
 
   Future<void> refresh() async {
     await _service.refreshUpdates();

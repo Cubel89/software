@@ -209,6 +209,12 @@ class PackageService {
     _isInstalledController.add(value);
   }
 
+  final _showLogs = StreamController<bool>.broadcast();
+  Stream<bool> get showLogs => _showLogs.stream;
+  void setShowLogs(bool value) {
+    _showLogs.add(value);
+  }
+
   final _selectionChangedController = StreamController<bool>.broadcast();
   Stream<bool> get selectionChanged => _selectionChangedController.stream;
   void selectAll() {

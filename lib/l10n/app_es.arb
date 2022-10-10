@@ -85,5 +85,7 @@
   "confirm": "Confirmar",
   "runsInBackground": "Ubuntu Software sigue ejecutándose en segundo plano para buscar actualizaciones del sistema.",
   "quit": "Cerrar",
-  "quitDanger": "¡Atención! Las actualizaciones del sistema se están ejecutando actualmente. ¡Salir de la aplicación ahora podría dejar su sistema en un estado dañado!"
+  "quitDanger": "¡Atención! Las actualizaciones del sistema se están ejecutando actualmente. ¡Salir de la aplicación ahora podría dejar su sistema en un estado dañado!",
+  "showLogs": "Mostrar logs",
+  "hideLogs": "Ocultar logs"
 }
